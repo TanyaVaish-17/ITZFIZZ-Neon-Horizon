@@ -1,85 +1,168 @@
-# 🏙️ NEON HORIZON — ITZFIZZ Scroll Animation
+# 🌌 NEON HORIZON — ITZFIZZ Scroll Animation
 
-A scroll-driven hero section built with **Next.js 14**, **GSAP**, and **Tailwind CSS**.
+A **scroll-driven hero section animation** built as part of an internship assignment, showcasing smooth motion, immersive UI, and high-performance frontend animation.
 
-## 🎬 Animation Breakdown
+---
 
-| Scroll Stage | Effect |
-|---|---|
-| **Page Load** | Letters stagger fade-in per character (GSAP), stats count up |
-| **0 – 35%** | Neon city zooms in (scale 1→1.6), light rays intensify |
-| **35 – 75%** | Buildings split LEFT & RIGHT, camera "flies through" the corridor |
-| **75 – 100%** | Final reveal — "THE FUTURE IS NOW" message fades in |
+## 🌐 Live Demo & Repository
+
+🔗 Live Website: https://tanyavaish-17.github.io/ITZFIZZ-Neon-Horizon/  
+
+💻 GitHub Repo: https://github.com/TanyaVaish-17/ITZFIZZ-Neon-Horizon
+
+---
+
+## 🏙️ Project Concept
+
+* **Brand Name:** ITZFIZZ
+* **Theme:** Futuristic Neon City
+* **Tagline:** *"The Future is Now"*
+
+This project creates a cinematic experience where users **enter a neon city through scroll interaction**, combining motion, depth, and storytelling.
+
+---
+
+## 🖼️ Preview
+
+![Project Preview](./public/preview.png)
+
+---
+
+## 🎬 Animation Story (Scroll Journey)
+
+| Stage          | Description                                                           |
+| -------------- | --------------------------------------------------------------------- |
+| 🚀 **Load**    | Letter-spaced headline fades in (staggered), stats animate one by one |
+| 🌆 **0–30%**   | City skyline zooms in, glow & fog intensify                           |
+| 🛣️ **30–60%** | Camera flies forward, buildings split left & right                    |
+| 🎯 **60–100%** | CTA + stats pin, background gains depth blur                          |
+
+---
+
+## ✨ Features
+
+### 🎯 Core Requirements (Implemented)
+
+* Full-screen hero section (above the fold)
+* Letter-spaced animated headline
+* Animated stats/metrics section
+* Scroll-driven animation tied to user interaction
+* Smooth easing and interpolation
+
+### 🌟 Advanced Effects
+
+* 🏙️ SVG Neon City (no image dependency)
+* 🎞️ GSAP + ScrollTrigger animation system
+* 💡 Glow & light beam effects reacting to scroll
+* ✨ Per-letter staggered headline animation
+* 🌌 Particle/star layer for depth
+
+---
+
+## ⚡ Performance Optimizations
+
+* Uses **transform (translate, scale)** for smooth animations
+* Avoids layout reflows and heavy calculations
+* Optimized scroll handling using GSAP
+
+---
 
 ## 🛠️ Tech Stack
-- Next.js 14 (App Router, static export)
-- TypeScript
-- Tailwind CSS
-- GSAP (ScrollTrigger-free — pure scroll math for max performance)
-- Pure SVG for all city visuals
 
-## 🚀 Setup & Run
+* ⚛️ Next.js 14 (App Router)
+* 🟦 TypeScript
+* 🎨 Tailwind CSS
+* 🎞️ GSAP + ScrollTrigger
+* 🌐 HTML, CSS, JavaScript
+
+---
+
+## 📁 Project Structure
+
+```bash
+.
+├── app/
+│   ├── components/
+│   │   ├── HeadlineText.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── NeonCity.tsx
+│   │   ├── ScrollProgress.tsx
+│   │   └── StatsRow.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── public/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── next.config.js
+├── next.config.mjs
+├── tailwind.config.ts
+├── tsconfig.json
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
 
 ```bash
 # Install dependencies
 npm install
 
-# Run dev server
+# Run development server
 npm run dev
 
-# Build for production
+# Build project
 npm run build
 ```
 
-## 📦 Deploy to GitHub Pages
+---
 
-1. In `next.config.js`, set:
-   ```js
-   basePath: '/your-repo-name'
-   ```
-2. Push to GitHub
-3. Enable GitHub Pages in repo Settings → Pages → `gh-pages` branch
-4. Or use this GitHub Action:
+## 🚀 Deployment (GitHub Pages)
 
-```yaml
-# .github/workflows/deploy.yml
-name: Deploy to GitHub Pages
-on:
-  push:
-    branches: [main]
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with: { node-version: 18 }
-      - run: npm install
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+1. Update `next.config.js`:
+
+```js
+basePath: '/your-repo-name'
 ```
 
-## 📁 Project Structure
+2. Push code to GitHub
 
-```
-app/
-  page.tsx                 ← Entry point
-  layout.tsx               ← Root layout + metadata
-  globals.css              ← CSS variables, fonts, utilities
-  components/
-    HeroSection.tsx        ← Scroll logic + layout
-    NeonCity.tsx           ← Reactive SVG city visual
-    HeadlineText.tsx       ← GSAP staggered headline
-    StatsRow.tsx           ← Animated count-up stats
-    ScrollProgress.tsx     ← Side bar + top bar indicator
-```
+3. Enable GitHub Pages:
+   Settings → Pages → Deploy from branch
 
-## ✨ Unique Features
-- **Zero image dependencies** — city is 100% SVG + CSS
-- **Scroll math** (not GSAP ScrollTrigger) for buttery smooth performance
-- **3-stage animation story**: zoom → fly-through → reveal
-- **HUD-style UI** with corner brackets, scan lines, noise texture
-- **Cinematic dark theme** with neon cyan / pink / purple palette
+---
+
+## 📌 Assignment Compliance
+
+✔️ Scroll-based animation implemented  
+✔️ Smooth initial load animations  
+✔️ Responsive hero section  
+✔️ Clean and structured code  
+✔️ High-performance animation techniques  
+✔️ Hosted project
+
+---
+
+## 🌟 Highlights
+
+* 🎬 Cinematic scroll storytelling
+* ⚡ Smooth and optimized animations
+* 🎨 Modern neon UI design
+* 🧠 Well-structured React components
+* 🚀 Real-world frontend animation implementation
+
+---
+
+## 👨‍💻 Author
+
+**Tanya Vaish**
+B.Tech CSE | Frontend Developer
+
+---
+
+⭐ *If you found this project interesting, consider giving it a star!*
+
