@@ -23,7 +23,6 @@ export default function HeroSection() {
 
       const section = sectionRef.current
       if (!section) return
-      // Total scrollable distance = document height - viewport
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight
       const progress = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0
       setScrollProgress(progress)
@@ -34,7 +33,6 @@ export default function HeroSection() {
     return () => cancelAnimationFrame(rafId)
   }, [])
 
-  // Parallax text: headline slides up as you scroll
   const headlineY = scrollProgress * -60
   const headlineOpacity = 1 - scrollProgress * 1.8
   const statsY = scrollProgress * -30
@@ -44,15 +42,12 @@ export default function HeroSection() {
     <>
       <ScrollProgress progress={scrollProgress} />
 
-      {/* Scroll container — tall enough for scroll-based animation */}
       <div ref={sectionRef} style={{ height: '400vh', position: 'relative' }}>
 
-        {/* Sticky viewport */}
         <div
           className="sticky top-0 w-full h-screen overflow-hidden scanlines"
           style={{ background: 'var(--bg-deep)' }}
         >
-          {/* Ambient background glow */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -64,7 +59,6 @@ export default function HeroSection() {
             }}
           />
 
-          {/* City visual — fills lower portion */}
           <div
             className="absolute inset-0 w-full h-full"
             style={{ transform: 'translateZ(0)' }}
@@ -72,7 +66,6 @@ export default function HeroSection() {
             <NeonCity scrollProgress={scrollProgress} />
           </div>
 
-          {/* Top nav bar */}
           <nav
             className="absolute top-0 left-0 right-0 flex justify-between items-center px-8 py-5 z-20"
             style={{ opacity: Math.max(0, 1 - scrollProgress * 3) }}
@@ -97,10 +90,8 @@ export default function HeroSection() {
             </div>
           </nav>
 
-          {/* Center content overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-6 gap-8">
 
-            {/* Headline */}
             <div
               style={{
                 transform: `translateY(${headlineY}px)`,
@@ -111,7 +102,6 @@ export default function HeroSection() {
               <HeadlineText />
             </div>
 
-            {/* Stats */}
             <div
               style={{
                 transform: `translateY(${statsY}px)`,
@@ -123,7 +113,6 @@ export default function HeroSection() {
               <StatsRow />
             </div>
 
-            {/* Scroll hint */}
             <div
               className="absolute bottom-10 flex flex-col items-center gap-2"
               style={{ opacity: Math.max(0, 1 - scrollProgress * 6) }}
@@ -141,7 +130,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Stage 2 message: flying through city */}
           <div
             className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none"
             style={{
@@ -173,7 +161,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Stage 3: final message */}
           <div
             className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none"
             style={{

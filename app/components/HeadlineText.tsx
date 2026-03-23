@@ -5,7 +5,6 @@ export default function HeadlineText() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Dynamically import GSAP to avoid SSR issues
     import('gsap').then(({ gsap }) => {
       const letters = containerRef.current?.querySelectorAll('.letter')
       if (!letters) return
@@ -30,7 +29,6 @@ export default function HeadlineText() {
 
   return (
     <div ref={containerRef} className="text-center relative z-10">
-      {/* Eyebrow label */}
       <div
         className="font-rajdhani text-xs tracking-[0.4em] text-cyan-400 mb-4 opacity-0 uppercase"
         style={{
@@ -41,7 +39,6 @@ export default function HeadlineText() {
         ◈ Welcome to the future ◈
       </div>
 
-      {/* Main headline — letter by letter */}
       <h1 className="flex items-center justify-center gap-[0.15em] mb-2">
         {brand.split('').map((char, i) => (
           <span
@@ -64,7 +61,6 @@ export default function HeadlineText() {
         ))}
       </h1>
 
-      {/* Subtitle */}
       <p
         className="font-rajdhani text-lg tracking-[0.3em] uppercase opacity-0"
         style={{
@@ -77,7 +73,6 @@ export default function HeadlineText() {
         The Future Is Now
       </p>
 
-      {/* Decorative line */}
       <div
         className="mx-auto mt-5 opacity-0"
         style={{

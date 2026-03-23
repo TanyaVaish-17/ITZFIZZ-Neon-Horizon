@@ -18,7 +18,6 @@ function CountUp({ target, suffix, duration = 1800 }: { target: number; suffix: 
       if (!startRef.current) startRef.current = timestamp
       const elapsed = timestamp - startRef.current
       const progress = Math.min(elapsed / duration, 1)
-      // Ease out quad
       const eased = 1 - (1 - progress) * (1 - progress)
       setCurrent(parseFloat((target * eased).toFixed(target % 1 !== 0 ? 1 : 0)))
       if (progress < 1) rafRef.current = requestAnimationFrame(animate)
@@ -72,13 +71,11 @@ export default function StatsRow() {
             backdropFilter: 'blur(8px)',
           }}
         >
-          {/* Glow top bar */}
           <div
             className="absolute top-0 left-0 right-0 h-px"
             style={{ background: `linear-gradient(90deg, transparent, ${stat.color}, transparent)` }}
           />
 
-          {/* Value */}
           <div
             className="font-orbitron font-bold text-2xl md:text-3xl mb-1"
             style={{
@@ -90,7 +87,6 @@ export default function StatsRow() {
             {visible ? <CountUp target={stat.value} suffix={stat.suffix} /> : `0${stat.suffix}`}
           </div>
 
-          {/* Label */}
           <div
             className="font-rajdhani text-xs tracking-widest uppercase"
             style={{ fontFamily: "'Rajdhani', sans-serif", color: '#7b8fa0' }}
@@ -98,7 +94,6 @@ export default function StatsRow() {
             {stat.label}
           </div>
 
-          {/* Corner accent */}
           <div className="absolute bottom-0 right-0 w-4 h-4"
             style={{ borderTop: `1px solid ${stat.color}44`, borderLeft: `1px solid ${stat.color}44` }} />
         </div>

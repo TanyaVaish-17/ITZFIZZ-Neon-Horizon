@@ -7,7 +7,6 @@ interface Props {
 export default function ScrollProgress({ progress }: Props) {
   return (
     <>
-      {/* Left vertical progress bar */}
       <div className="fixed left-5 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-2">
         <span
           className="font-orbitron text-[9px] tracking-widest rotate-180 mb-2"
@@ -33,7 +32,6 @@ export default function ScrollProgress({ progress }: Props) {
         </span>
       </div>
 
-      {/* Top horizontal thin bar */}
       <div className="fixed top-0 left-0 right-0 h-px z-50">
         <div
           className="h-full"
